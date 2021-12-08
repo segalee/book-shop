@@ -39,7 +39,7 @@ function createReadModal(bookIdx) {
     <img src=${book.imgUrl}>
     <p class="desc">${book.desc}</p>`;
     elReadModal.innerHTML = strHTML;
-    elReadModal.classList.add('open');
+    // elReadModal.classList.add('open');
 }
 
 function onCloseUpdateModal() {
@@ -47,8 +47,8 @@ function onCloseUpdateModal() {
 }
 
 function onCloseReadModal() {
-    // document.querySelector('.read-modal').classList.remove('open');
     document.querySelector('.read-modal').style.display = 'none';
+    // document.querySelector('.read-modal').classList.remove('open');
     // document.querySelector('.close-read-modal').display = 'none';
 }
 

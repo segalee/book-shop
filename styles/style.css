@@ -1,154 +1,153 @@
-* {
-    box-sizing: border-box;
-}
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        margin-top: 1rem;
+        font-size: 17px;
+        background-color: #e8f4fa;
+        background-image: url(/img/bg.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        /* background-image: url(https://www.transparenttextures.com/patterns/white-diamond-dark.png); */
+        text-align: center;
+        /* font-family: 'Franklin Gothic Medium', Arial, Helvetica, Sans-serif, Verdana; */
+        overflow-x: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    body.rtl {
+        direction: rtl;
+    }
+    
+    body .read-modal {
+        margin-inline-start: 84%;
+    }
+    
+    .add-book-btn {
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    .create {
+        margin-bottom: -1rem;
+        margin-left: -31.25rem;
+    }
+    
+    table {
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        margin: 25px 0;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+        z-index: 1;
+        /* margin-left: 20%; */
+    }
+    
+    thead tr {
+        /* background-color: #96d5eec2; */
+        background: rgba(245, 255, 255, 0.356);
+        background: linear-gradient(90deg, rgba(245, 255, 255, 0.431) 0%, rgba(241, 252, 255, 0.404) 33%, rgba(243, 251, 249, 0.432) 63%, rgba(224, 244, 254, 0.404) 100%, rgba(6, 37, 11, 1) 100%, rgba(200, 236, 255, 0.342) 100%);
+        color: #030462;
+        text-align: center;
+        font-size: 1.3rem;
+        padding: 25px 30px;
+    }
+    
+    tr {
+        background-color: #d8f0edb7;
+        color: #444242;
+        /* text-align: left; */
+        border-bottom: 1px solid #dddddd;
+    }
+    
+    tbody tr:nth-of-type(even) {
+        background: rgb(245, 255, 255);
+        background: linear-gradient(90deg, rgba(245, 255, 255, 1) 0%, rgba(241, 252, 255, 1) 33%, rgba(243, 251, 249, 1) 63%, rgba(224, 244, 254, 1) 100%, rgba(6, 37, 11, 1) 100%, rgba(200, 236, 255, 0.72919590199361) 100%);
+    }
+    
+    tbody tr:last-of-type {
+        border-bottom: 2px solid #009879;
+    }
+    
+    td {
+        padding: 25px 30px;
+        font-size: 1.3rem;
+    }
+    
+    .read,
+    .update,
+    .delete {
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        padding: 3px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        /* text-shadow: -2px 3px 3px rgb(86 30 30); */
+        box-shadow: -4px 3px 6px 2px;
+        width: 7rem;
+        height: 3rem;
+    }
+    
+    .read:hover,
+    .update:hover,
+    .delete:hover {
+        cursor: pointer;
+        background-color: #a56aa050;
+    }
+    
+    .read {
+        background-color: #1d45c7;
+    }
+    
+    .update {
+        background-color: #f1af45;
+    }
+    
+    .delete {
+        background-color: #f14545;
+    }
+    
+    .open {
+        margin-left: 75%;
+    }
+    
+    .read-modal {
+        display: none;
+        width: 20rem;
+        border: 2px black solid;
+        border-radius: 8px;
+        margin-top: -600px;
+        margin-inline-start: -16%;
+        transition: 0.5s;
+        background: rgb(60, 122, 122);
+        background: linear-gradient(90deg, rgb(229, 250, 250) 0%, rgb(213, 236, 243) 33%, rgb(225, 248, 242) 63%, rgb(202, 231, 245) 100%, rgba(6, 37, 11, 1) 100%, rgba(187, 231, 255, 0.729) 100%);
+        /* z-index: 2; */
+        position: relative;
+    }
+    
+    img {
+        width: 200px
+    }
+    /* .update-modal { */
+    /* display: none; */
+    /* width: 15rem; */
+    /* border: 2px black solid;
+        margin: auto; */
+    /* transition: 0.5s; */
+    /* } */
+    
+    .create-book-modal {
+        display: none;
+        width: fit-content;
+        /* border: 2px black solid; */
+        margin: auto;
+        transition: 0.5s;
+    }
+    /* .add-book-btn{
 
-body {
-    font-size: 17px;
-    background-color: #e8f4fa;
-    background-image: url("https://www.transparenttextures.com/patterns/white-diamond-dark.png");
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', Arial, Helvetica, Sans-serif, Verdana;
-    overflow-x: hidden;
-}
-
-body.rtl {
-    direction: rtl;
-}
-
-body .read-modal {
-    margin-inline-start: 75%;
-}
-
-.add-book-btn {
-    background-color: rgba(153, 125, 125, 0.219);
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.create {
-    margin-bottom: -1rem;
-    margin-left: -31.25rem;
-}
-
-table {
-    border-collapse: collapse;
-    font-size: 0.9rem;
-    margin: 25px 0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    min-width: 400px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-    z-index: 1;
-    /* margin-left: 20%; */
-}
-
-thead tr {
-    background-color: #75bedbbd;
-    color: #ffffff;
-    text-align: center;
-    font-size: 1.3rem;
-    padding: 25px 30px;
-}
-
-tr {
-    background-color: #cbe0dd;
-    color: #444242;
-    /* text-align: left; */
-    border-bottom: 1px solid #dddddd;
-}
-
-tbody tr:nth-of-type(even) {
-    background-color: #dbf0f1;
-}
-
-tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
-}
-
-td {
-    padding: 25px 30px;
-    font-size: 1.3rem;
-}
-
-.read,
-.update,
-.delete {
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    padding: 3px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    /* text-shadow: -2px 3px 3px rgb(86 30 30); */
-    box-shadow: -4px 3px 6px 2px;
-    width: 7rem;
-    height: 3rem;
-}
-
-.read:hover,
-.update:hover,
-.delete:hover {
-    cursor: pointer;
-    background-color: #a56aa0a4;
-}
-
-.read {
-    background-color: #1d45c7;
-}
-
-.update {
-    background-color: #f1af45;
-}
-
-.delete {
-    background-color: #f14545;
-}
-
-.read-modal {
-    display: none;
-    width: 20rem;
-    border: 2px black solid;
-    margin-top: -470px;
-    /* margin-left: 101%; */
-    transition: 0.5s;
-    background-color: #1d45c700;
-    z-index: 2;
-}
-
-img {
-    width: 200px
-}
-
-.open {
-    margin-left: 75%;
-}
-
-
-/* .update-modal { */
-
-
-/* display: none; */
-
-
-/* width: 15rem; */
-
-
-/* border: 2px black solid;
-    margin: auto; */
-
-
-/* transition: 0.5s; */
-
-
-/* } */
-
-.create-book-modal {
-    display: none;
-    width: fit-content;
-    /* border: 2px black solid; */
-    margin: auto;
-    transition: 0.5s;
-}
-
-.book-shop {
-    max-width: 980px;
-}
+    } */
