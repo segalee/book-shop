@@ -11,10 +11,9 @@ function onOpenModal(id) {
 function createReadModal(bookIdx) {
     const book = getBookById(bookIdx);
     const elReadModal = document.querySelector('.read-modal');
-    var strHTML = `<button onclick="onCloseModal()" class="close-modal">x</button>
+    var strHTML = `<button onclick="onCloseReadModal()" class="close-read-modal">x</button>
     <h2>${book.name}</h2>
-    <!-- <p class="rate"></p> -->
-    <input class="rate" type="number" min="0" max="10" value="${book.rate}">${book.rate}
+    <input class="rate" type="number" min="0" max="10" value="${book.rate}">
     <p class="${book.price}$"></p>
     <img src=${book.imgUrl}>
     <p class="desc">${book.desc}</p>`;
@@ -22,18 +21,22 @@ function createReadModal(bookIdx) {
     elReadModal.classList.add('open');
 }
 
-function onCloseModal() {
+function onCloseUpdateModal() {
+    document.querySelector('.update-modal').style.display = 'none';
+}
+
+function onCloseReadModal() {
     document.querySelector('.read-modal').classList.remove('open');
-    document.querySelector('.close-modal').display = 'none';
+    document.querySelector('.close-read-modal').display = 'none';
 }
 
 //will prompt for the book new price and call the service's function
 //BONUS: Read the data from the user using an <input> instead of prompt
 function onUpdateBook(bookId) {
     const elUpdateModal = document.querySelector('.update-modal');
+    elUpdateModal.style.display = 'block';
     var strHTML = `<div class="update-modal mb-3">
-                <button onclick="onCloseUpdateModal()" class="close-modal" type="button">x</button>
-            </div>
+            
             <div class="mb-3">
                 <label for="book-title" class="form-label">Book Title</label>
                 <input class="form-label title-input-upd" id="book-title" type="text" placeholder="Book Title">
@@ -42,7 +45,10 @@ function onUpdateBook(bookId) {
                 <label for="book-price" class="form-label">New Price</label>
                 <input class="form-label price-input-upd" id="book-price" type="number" placeholder="Price ($)">
             </div>
-            <button onclick="onUpdateUserInfo('${bookId}')" type="submit" class="btn btn-primary" onsubmit="onSubmitForm()">Submit</button>`;
+            <div>
+            <button onclick="onCloseUpdateModal()" class="btn btn-danger close-upd-modal" type="button">Cancel</button>
+            <button onclick="onUpdateUserInfo('${bookId}')" type="submit" class="btn btn-primary" onsubmit="onSubmitForm()">Submit</button> </div></div>`;
+
     elUpdateModal.innerHTML = strHTML;
 }
 
