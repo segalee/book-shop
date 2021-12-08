@@ -1,5 +1,5 @@
 'use strict';
-
+gSortBy = 'price';
 //BONUS: Add simple paging with Next and Prev buttons
 //  update the disabled property of the button appropriately
 //BONUS: Add this pages selection ui component
@@ -22,6 +22,11 @@ function onSetLang(lang) {
     doTrans();
     // _createBooks();
     // renderBooks();
+}
+
+function onSortBy(sortBy) {
+    setBooksSort(sortBy);
+    renderBooks();
 }
 
 function onOpenReadModal(id) {

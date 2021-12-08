@@ -14,32 +14,36 @@
 <body class="rtl" onload="onInit()">
     <div class="book-shop">
         <header class="header">
-            <h1 data-trans="title">Welcome to my bookshop</h1>
+        </header>
+        <h1 data-trans="title">Welcome to my bookshop</h1>
+        <section class="selectors">
             <select class="form-select-sm" onchange="onSetLang(this.value)">
                 <option selected>select language/בחר שפה</option>
                 <option value="en">English</option>
             <option value="he">עברית</option>
             </select>
             <select class="form-select-sm" onchange="onSortBy(this.value)">
-                <option selected>Sort By/מיין לפי</option>
-                <option value="title">Title</option>
-            <option value="price">Price</option>
+                <option data-trans="sort-by" selected>Sort By/מיין לפי</option>
+                <option value="title" data-trans="sort-title">Title</option>
+            <option value="price" data-trans="sort-price">Price</option>
+            <option value="id" data-trans="sort-id">Id</option>
             </select>
-        </header>
-        <section class="create-books">
-
-            <!-- class="add-book-btn" onclick="onAddBook()" + -->
-            <button onclick="onAddBook()" class="btn btn-light create add-book-btn" data-trans="create-new-btn"> Create new book +  </button>
-            <form class="create-book-modal">
-                <button onclick="onCloseCreateModal()" class="close-modal">x</button>
-                <input class="title-input" type="text" placeholder="Book Title" data-trans="create-title-placeholder">
-                <input class="price-input" type="number" placeholder="Price ($)" data-trans="create-price-placeholder">
-                <button onclick="onCreateBook()" data-trans="create-btn">create</button>
-            </form>
         </section>
 
 
+
         <section class="book-store-table">
+            <section class="create-books">
+
+                <!-- class="add-book-btn" onclick="onAddBook()" + -->
+                <button onclick="onAddBook()" class="btn btn-light create add-book-btn" data-trans="create-new-btn"> Create new book +  </button>
+                <form class="create-book-modal">
+                    <button onclick="onCloseCreateModal()" class="close-modal">x</button>
+                    <input class="title-input" type="text" placeholder="Book Title" data-trans="create-title-placeholder">
+                    <input class="price-input" type="number" placeholder="Price ($)" data-trans="create-price-placeholder">
+                    <button onclick="onCreateBook()" data-trans="create-btn">create</button>
+                </form>
+            </section>
             <table border="1">
                 <thead>
                     <tr>

@@ -78,6 +78,22 @@ var gTrans = {
         en: 'Cancel',
         he: 'ביטול',
     },
+    'sort-title': {
+        en: 'Title',
+        he: 'שם הספר',
+    },
+    'sort-by': {
+        en: 'Sort By',
+        he: 'מיין לפי',
+    },
+    'sort-price': {
+        en: 'Price',
+        he: 'מחיר',
+    },
+    'sort-id': {
+        en: 'Id',
+        he: 'מקט',
+    },
 };
 
 function getTrans(transKey) {
@@ -119,34 +135,3 @@ function doTrans() {
 function setLang(lang) {
     gCurrLang = lang;
 }
-
-// function formatNumOlder(num) {
-//     return num.toLocaleString('es');
-// }
-
-// function formatNum(num) {
-//     return new Intl.NumberFormat(gCurrLang).format(num);
-// }
-
-// function formatCurrency(num) {
-//     return new Intl.NumberFormat('he-IL', {
-//         style: 'currency',
-//         currency: 'ILS',
-//     }).format(num);
-// }
-
-// function formatDate(time) {
-//     var options = {
-//         year: 'numeric',
-//         month: 'short',
-//         day: 'numeric',
-//         hour: 'numeric',
-//         minute: 'numeric',
-//         hour12: true,
-//     };
-//     return new Intl.DateTimeFormat(gCurrLang, options).format(time);
-// }
-
-// function kmToMiles(km) {
-//     return km / 1.609;
-// }

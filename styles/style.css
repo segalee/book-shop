@@ -26,25 +26,34 @@
         margin-inline-start: 84%;
     }
     
-    .add-book-btn {
-        cursor: pointer;
-        border-radius: 5px;
+    body .create {
+        margin-left: -43.25rem;
+    }
+    
+    h1 {
+        text-shadow: 2px 1px 4px white;
+        font-size: 50px;
+        margin-top: 70px;
+        /* margin-bottom: 10px; */
     }
     
     .create {
         margin-bottom: -1rem;
-        margin-left: -31.25rem;
+        margin-left: -43.25rem;
+        cursor: pointer;
+    }
+    
+    .book-store-table {
+        margin-top: 40px;
     }
     
     table {
         border-collapse: collapse;
         font-size: 0.9rem;
         margin: 25px 0;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         min-width: 400px;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
         z-index: 1;
-        /* margin-left: 20%; */
     }
     
     thead tr {
@@ -52,6 +61,7 @@
         background: rgba(245, 255, 255, 0.356);
         background: linear-gradient(90deg, rgba(245, 255, 255, 0.431) 0%, rgba(241, 252, 255, 0.404) 33%, rgba(243, 251, 249, 0.432) 63%, rgba(224, 244, 254, 0.404) 100%, rgba(6, 37, 11, 1) 100%, rgba(200, 236, 255, 0.342) 100%);
         color: #030462;
+        text-shadow: 2px 1px 4px white;
         text-align: center;
         font-size: 1.3rem;
         padding: 25px 30px;
@@ -74,8 +84,10 @@
     }
     
     td {
-        padding: 25px 30px;
+        padding: 10px 15px;
         font-size: 1.3rem;
+        color: #080925;
+        font-weight: 400;
     }
     
     .read,

@@ -1,6 +1,6 @@
 'use strict';
 var gBooks;
-
+var gSortBy = 'title';
 const STORAGE_KEY = 'booksDB';
 // book-service - gBooks
 // 1. removeBook(bookId) //splice from gArray&deleteBookFromLocalStorage
@@ -10,22 +10,24 @@ const STORAGE_KEY = 'booksDB';
 // renderBooks()
 
 function getBooks() {
-    var books = gBooks;
-    // .filter(book =>
-    //     book.vendor.includes(gFilterBy.vendor) &&
-    //     book.maxSpeed >= gFilterBy.minSpeed)
-
-    // const startIdx = gPageIdx * PAGE_SIZE
-    // books = books.slice(startIdx, startIdx + PAGE_SIZE)
-    return books;
+    if (gSortBy === 'id')
+        gBooks.sort((a, b) => {
+            return a.id.localeCompare(b.id);
+        });
+    if (gSortBy === 'title')
+        gBooks.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+        });
+    if (gSortBy === 'price')
+        gBooks.sort((a, b) => {
+            return a.price - b.price;
+        });
+    return gBooks;
 }
 
-// function openModal(bookId) {
-//     const bookIdx = gBooks.findIndex((book) => {
-//         return book.id === bookId;
-//     });
-//     return bookIdx;
-// }
+function setBooksSort(sortBy) {
+    gSortBy = sortBy;
+}
 
 function getBookById(bookId) {
     const books = getBooks();
