@@ -18,7 +18,7 @@ function onSubmitForm() {
 
 function createModal(bookIdx) {
     const book = getBookById(bookIdx);
-    const elModal = document.querySelector('.modal');
+    const elModal = document.querySelector('.read-modal');
     elModal.querySelector('h2').innerText = book.name;
     elModal.querySelector('.price').innerText = `${book.price}$`;
     elModal.querySelector('img').src = book.imgUrl;
@@ -30,7 +30,7 @@ function createModal(bookIdx) {
 }
 
 function onCloseModal() {
-    document.querySelector('.modal').classList.remove('open');
+    document.querySelector('.read-modal').classList.remove('open');
     document.querySelector('.close-modal').display = 'none';
 }
 
