@@ -5,28 +5,21 @@
 //BONUS: Add this pages selection ui component
 
 function onOpenModal(id) {
-    createModal(id);
+    createReadModal(id);
 }
 
-function onSubmitForm() {
-    // get text& price value
-    // validate if values entered
-    //update model
-    //render
-    //save to local storage
-}
-
-function createModal(bookIdx) {
+function createReadModal(bookIdx) {
     const book = getBookById(bookIdx);
-    const elModal = document.querySelector('.read-modal');
-    elModal.querySelector('h2').innerText = book.name;
-    elModal.querySelector('.price').innerText = `${book.price}$`;
-    elModal.querySelector('img').src = book.imgUrl;
-    elModal.querySelector('.desc').innerText = book.desc;
-    elModal.querySelector('.rate').innerText = book.rate;
-    elModal.querySelector('.rate').value = book.rate;
-    // <input class="rate" type="number" min="0" max="10">
-    elModal.classList.add('open');
+    const elReadModal = document.querySelector('.read-modal');
+    var strHTML = `<button onclick="onCloseModal()" class="close-modal">x</button>
+    <h2>${book.name}</h2>
+    <!-- <p class="rate"></p> -->
+    <input class="rate" type="number" min="0" max="10" value="${book.rate}">${book.rate}
+    <p class="${book.price}$"></p>
+    <img src=${book.imgUrl}>
+    <p class="desc">${book.desc}</p>`;
+    elReadModal.innerHTML = strHTML;
+    elReadModal.classList.add('open');
 }
 
 function onCloseModal() {
@@ -36,20 +29,34 @@ function onCloseModal() {
 
 //will prompt for the book new price and call the service's function
 //BONUS: Read the data from the user using an <input> instead of prompt
-function onUpdateBook(id) {
-    // gUpdatedbookId
+function onUpdateBook(bookId) {
+    const elUpdateModal = document.querySelector('.update-modal');
+    var strHTML = `<div class="update-modal mb-3">
+                <button onclick="onCloseUpdateModal()" class="close-modal" type="button">x</button>
+            </div>
+            <div class="mb-3">
+                <label for="book-title" class="form-label">Book Title</label>
+                <input class="form-label title-input-upd" id="book-title" type="text" placeholder="Book Title">
+            </div>
+            <div class="mb-3">
+                <label for="book-price" class="form-label">New Price</label>
+                <input class="form-label price-input-upd" id="book-price" type="number" placeholder="Price ($)">
+            </div>
+            <button onclick="onUpdateUserInfo('${bookId}')" type="submit" class="btn btn-primary" onsubmit="onSubmitForm()">Submit</button>`;
+    elUpdateModal.innerHTML = strHTML;
+}
 
-    var newName = prompt('Enter book name');
-    var newPrice = +prompt('Enter book price');
-    if (!newPrice || !newName) return;
-    updateBook(id, newName, newPrice);
+// get text & price value,  validate if values entered
+//update model, render
+//save to local storage
+//will prompt for the book new price and call the service's function
+//BONUS: Read the data from the user using an <input> instead of prompt
+function onUpdateUserInfo(id, userTitle, userPrice) {
+    var userTitle = document.querySelector('.title-input-upd').value;
+    var userPrice = document.querySelector('.price-input-upd').value;
+    if (!userTitle || !userPrice) return;
+    updateBook(id, userTitle, userPrice);
     renderBooks();
-    // if (newPrice && newName) {
-    //     updateBook(id, newName, newPrice);
-    //     renderBooks();
-    // } else {
-    //     return;
-    // }
 }
 
 //will use the service's function removeBook(bookId)
