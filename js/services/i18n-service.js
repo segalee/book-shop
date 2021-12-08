@@ -119,7 +119,7 @@ function doTrans() {
     // get the data-trans and use getTrans to replace the innerText
     els.forEach((el) => {
         const transKey = el.dataset.trans;
-        console.log('el:', el);
+        // console.log('el:', el);
 
         if (el.nodeName === 'INPUT') {
             // for placeholders

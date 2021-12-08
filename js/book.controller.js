@@ -47,6 +47,10 @@ function createReadModal(bookIdx) {
     // elReadModal.classList.add('open');
 }
 
+function onCloseCreateModal() {
+    document.querySelector('.create-modal').style.display = 'none';
+}
+
 function onCloseUpdateModal() {
     document.querySelector('.update-modal').style.display = 'none';
 }
@@ -100,9 +104,9 @@ function onRemoveBook(id) {
 function onCreateBook() {
     var name = document.querySelector('.title-input').value;
     var price = document.querySelector('.price-input').value;
-
     if (price && name) {
         addBook(name, price);
+        // doTrans();
         renderBooks();
         document.querySelector('.create').style.display = 'block';
     } else {
