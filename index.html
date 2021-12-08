@@ -11,21 +11,19 @@
     <title>Book Store</title>
 </head>
 
-<body onload="onInit()">
+<body class="rtl" onload="onInit()">
     <div>
         <header>
             <h1>Welcome to my bookshop</h1>
         </header>
         <section class="create-books">
 
-            <!-- <button onclick="onAddBook()" class="create-new-book">Create new book <button>+</button></button> -->
             <p class="create"> Create new book <button class="add-book-btn" onclick="onAddBook()"> + </button></p>
             <form class="create-book-modal">
                 <button onclick="onCloseCreateModal()" class="close-modal">x</button>
                 <input class="title-input" type="text" placeholder="Book Title">
                 <input class="price-input" type="number" placeholder="Price ($)">
                 <button onclick="onCreateBook()">create</button>
-                <!-- <div><input onsubmit="onSubmitForm()" type="submit" value="Submit"></div> -->
             </form>
         </section>
 
@@ -48,24 +46,11 @@
         </section>
 
         <form class="update-modal mb-3">
-            <!-- <div class="update-modal mb-3">
-                <button onclick="onCloseUpdateModal()" class="close-modal" type="button">x</button>
-            </div>
-            <div class="mb-3">
-                <label for="book-title" class="form-label">Book Title</label>
-                <input class="form-label title-input" id="book-title" type="text" placeholder="Book Title">
-            </div>
-            <div class="mb-3">
-                <label for="book-price" class="form-label">New Price</label>
-                <input class="form-label price-input" id="book-price" type="number" placeholder="Price ($)">
-            </div>
-            <button onsubmit="onSubmitForm()" type="submit" class="btn btn-primary" onsubmit="onSubmitForm()">Submit</button> -->
         </form>
 
         <section class="read-modal">
             <button onclick="onCloseReadModal()" class="close-read-modal">x</button>
             <h2></h2>
-            <!-- <p class="rate"></p> -->
             <input class="rate" type="number" min="0" max="10">
             <p class="price"></p>
             <img>
@@ -73,7 +58,9 @@
         </section>
     </div>
 
+
     <script src="js/services/utils.service.js"></script>
+    <script src="js/services/i18n-service.js"></script>
     <script src="js/services/storage.service.js"></script>
     <script src="js/services/book.service.js"></script>
     <script src="js/book.controller.js"></script>

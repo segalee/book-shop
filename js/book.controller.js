@@ -4,13 +4,14 @@
 //  update the disabled property of the button appropriately
 //BONUS: Add this pages selection ui component
 
-function onOpenModal(id) {
+function onOpenReadModal(id) {
     createReadModal(id);
 }
 
 function createReadModal(bookIdx) {
     const book = getBookById(bookIdx);
     const elReadModal = document.querySelector('.read-modal');
+    elReadModal.style.display = 'block';
     var strHTML = `<button onclick="onCloseReadModal()" class="close-read-modal">x</button>
     <h2>${book.name}</h2>
     <input class="rate" type="number" min="0" max="10" value="${book.rate}">
@@ -26,8 +27,9 @@ function onCloseUpdateModal() {
 }
 
 function onCloseReadModal() {
-    document.querySelector('.read-modal').classList.remove('open');
-    document.querySelector('.close-read-modal').display = 'none';
+    // document.querySelector('.read-modal').classList.remove('open');
+    document.querySelector('.read-modal').style.display = 'none';
+    // document.querySelector('.close-read-modal').display = 'none';
 }
 
 //will prompt for the book new price and call the service's function
@@ -103,7 +105,7 @@ function renderBooks() {
                 <td>${book.name}</td>
                 <td>${book.price}</td>
 
-                <td><button onClick ="onOpenModal('${book.id}')" class="read">Read</button></td>
+                <td><button onClick ="onOpenReadModal('${book.id}')" class="read">Read</button></td>
                 <td><button onClick ="onUpdateBook('${book.id}')" class="update">Update</button></td>
                 <td><button onClick ="onRemoveBook('${book.id}')" class="delete">Delete</button></td>
             </tr>`;

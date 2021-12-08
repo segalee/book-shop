@@ -11,8 +11,12 @@ body {
     overflow-x: hidden;
 }
 
-body .rtl {
+body.rtl {
     direction: rtl;
+}
+
+body .read-modal {
+    margin-inline-start: 75%;
 }
 
 .add-book-btn {
@@ -33,7 +37,8 @@ table {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     min-width: 400px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-    margin-left: 20%;
+    z-index: 1;
+    /* margin-left: 20%; */
 }
 
 thead tr {
@@ -47,7 +52,7 @@ thead tr {
 tr {
     background-color: #cbe0dd;
     color: #444242;
-    text-align: left;
+    /* text-align: left; */
     border-bottom: 1px solid #dddddd;
 }
 
@@ -99,11 +104,14 @@ td {
 }
 
 .read-modal {
+    display: none;
     width: 20rem;
     border: 2px black solid;
     margin-top: -470px;
-    margin-left: 101%;
+    /* margin-left: 101%; */
     transition: 0.5s;
+    background-color: #1d45c700;
+    z-index: 2;
 }
 
 img {
