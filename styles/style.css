@@ -148,3 +148,7 @@ img {
     margin: auto;
     transition: 0.5s;
 }
+
+.book-shop {
+    max-width: 980px;
+}

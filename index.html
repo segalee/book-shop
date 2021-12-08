@@ -12,15 +12,18 @@
 </head>
 
 <body class="rtl" onload="onInit()">
-    <div>
+    <div class="book-shop">
         <header class="header">
             <h1 data-trans="title">Welcome to my bookshop</h1>
             <select class="form-select-sm" onchange="onSetLang(this.value)">
                 <option selected>select language/בחר שפה</option>
                 <option value="en">English</option>
             <option value="he">עברית</option>
-            
-            
+            </select>
+            <select class="form-select-sm" onchange="onSortBy(this.value)">
+                <option selected>Sort By/מיין לפי</option>
+                <option value="title">Title</option>
+            <option value="price">Price</option>
             </select>
         </header>
         <section class="create-books">
