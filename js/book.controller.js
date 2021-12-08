@@ -3,6 +3,26 @@
 //BONUS: Add simple paging with Next and Prev buttons
 //  update the disabled property of the button appropriately
 //BONUS: Add this pages selection ui component
+// var gLang = 'EN';
+
+function onInit() {
+    _createBooks();
+    renderBooks();
+    // onSetLang(gLang);
+}
+
+function onSetLang(lang) {
+    // gLang = lang;
+    setLang(lang);
+    if (lang === 'he') {
+        document.body.classList.add('rtl');
+    } else {
+        document.body.classList.remove('rtl');
+    }
+    doTrans();
+    // _createBooks();
+    // renderBooks();
+}
 
 function onOpenReadModal(id) {
     createReadModal(id);
@@ -38,20 +58,19 @@ function onUpdateBook(bookId) {
     const elUpdateModal = document.querySelector('.update-modal');
     elUpdateModal.style.display = 'block';
     var strHTML = `<div class="update-modal mb-3">
-            
             <div class="mb-3">
-                <label for="book-title" class="form-label">Book Title</label>
-                <input class="form-label title-input-upd" id="book-title" type="text" placeholder="Book Title">
+                <label for="book-title" class="form-label"  data-trans="update-title-lable">Book Title</label>
+                <input class="form-label title-input-upd" id="book-title" type="text" data-trans="update-title-placeholder" placeholder="Book Title">
             </div>
             <div class="mb-3">
-                <label for="book-price" class="form-label">New Price</label>
-                <input class="form-label price-input-upd" id="book-price" type="number" placeholder="Price ($)">
+                <label for="book-price" class="form-label" data-trans="update-price-lable">New Price</label>
+                <input class="form-label price-input-upd" id="book-price" data-trans="update-price-placeholder" type="number" placeholder="Price ($)">
             </div>
             <div>
-            <button onclick="onCloseUpdateModal()" class="btn btn-danger close-upd-modal" type="button">Cancel</button>
-            <button onclick="onUpdateUserInfo('${bookId}')" type="submit" class="btn btn-primary" onsubmit="onSubmitForm()">Submit</button> </div></div>`;
-
+            <button onclick="onCloseUpdateModal()" class="btn btn-danger close-upd-modal" type="button" data-trans="cancel-update-btn">Cancel</button>
+            <button onclick="onUpdateUserInfo('${bookId}')" type="submit" class="btn btn-primary" data-trans="submit-update-btn" onsubmit="onSubmitForm()">Submit</button> </div></div>`;
     elUpdateModal.innerHTML = strHTML;
+    doTrans();
 }
 
 // get text & price value,  validate if values entered
@@ -105,9 +124,9 @@ function renderBooks() {
                 <td>${book.name}</td>
                 <td>${book.price}</td>
 
-                <td><button onClick ="onOpenReadModal('${book.id}')" class="read">Read</button></td>
-                <td><button onClick ="onUpdateBook('${book.id}')" class="update">Update</button></td>
-                <td><button onClick ="onRemoveBook('${book.id}')" class="delete">Delete</button></td>
+                <td><button data-trans="read-btn" onClick ="onOpenReadModal('${book.id}')" class="read">Read</button></td>
+                <td><button data-trans="update-btn" onClick ="onUpdateBook('${book.id}')" class="update">Update</button></td>
+                <td><button data-trans="delete-btn" onClick ="onRemoveBook('${book.id}')" class="delete">Delete</button></td>
             </tr>`;
     });
     var elTable = document.querySelector('tbody');

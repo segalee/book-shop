@@ -13,17 +13,25 @@
 
 <body class="rtl" onload="onInit()">
     <div>
-        <header>
-            <h1>Welcome to my bookshop</h1>
+        <header class="header">
+            <h1 data-trans="title">Welcome to my bookshop</h1>
+            <select class="form-select-sm" onchange="onSetLang(this.value)">
+                <option selected>select language/בחר שפה</option>
+                <option value="en">English</option>
+            <option value="he">עברית</option>
+            
+            
+            </select>
         </header>
         <section class="create-books">
 
-            <p class="create"> Create new book <button class="add-book-btn" onclick="onAddBook()"> + </button></p>
+            <!-- class="add-book-btn" onclick="onAddBook()" + -->
+            <button onclick="onAddBook()" class="create add-book-btn" data-trans="create-new-btn"> Create new book +  </button>
             <form class="create-book-modal">
                 <button onclick="onCloseCreateModal()" class="close-modal">x</button>
-                <input class="title-input" type="text" placeholder="Book Title">
-                <input class="price-input" type="number" placeholder="Price ($)">
-                <button onclick="onCreateBook()">create</button>
+                <input class="title-input" type="text" placeholder="Book Title" data-trans="create-title-placeholder">
+                <input class="price-input" type="number" placeholder="Price ($)" data-trans="create-price-placeholder">
+                <button onclick="onCreateBook()" data-trans="create-btn">create</button>
             </form>
         </section>
 
@@ -32,10 +40,10 @@
             <table border="1">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Title</th>
-                        <th>Price</th>
-                        <th colspan="3">Actions
+                        <th data-trans="th-id">Id</th>
+                        <th data-trans="th-title">Title</th>
+                        <th data-trans="th-price">Price</th>
+                        <th data-trans="th-actions" colspan="3">Actions
                         </th>
                     </tr>
                 </thead>

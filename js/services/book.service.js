@@ -9,11 +9,6 @@ const STORAGE_KEY = 'booksDB';
 // updating the local storag--> storeBooksToLocalStorage()
 // renderBooks()
 
-function onInit() {
-    _createBooks();
-    renderBooks();
-}
-
 function getBooks() {
     var books = gBooks;
     // .filter(book =>
