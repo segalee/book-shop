@@ -29,11 +29,11 @@ function onSortBy(sortBy) {
     renderBooks();
 }
 
-function onOpenReadModal(id) {
-    createReadModal(id);
-}
+// function onOpenReadModal(id) {
+//     createReadModal(id);
+// }
 
-function createReadModal(bookIdx) {
+function onOpenReadModal(bookIdx) {
     const book = getBookById(bookIdx);
     const elReadModal = document.querySelector('.read-modal');
     elReadModal.style.display = 'block';
@@ -48,6 +48,7 @@ function createReadModal(bookIdx) {
 }
 
 function onCloseCreateModal() {
+    ev.preventDefault();
     document.querySelector('.create-modal').style.display = 'none';
 }
 
@@ -63,7 +64,9 @@ function onCloseReadModal() {
 
 //will prompt for the book new price and call the service's function
 //BONUS: Read the data from the user using an <input> instead of prompt
+//renderUpdateModal
 function onUpdateBook(bookId) {
+    // ev.preventDefault();
     const elUpdateModal = document.querySelector('.update-modal');
     elUpdateModal.style.display = 'block';
     var strHTML = `<div class="update-modal mb-3">
@@ -77,7 +80,7 @@ function onUpdateBook(bookId) {
             </div>
             <div>
             <button onclick="onCloseUpdateModal()" class="btn btn-danger close-upd-modal" type="button" data-trans="cancel-update-btn">Cancel</button>
-            <button onclick="onUpdateUserInfo('${bookId}')" type="submit" class="btn btn-primary" data-trans="submit-update-btn" onsubmit="onSubmitForm()">Submit</button> </div></div>`;
+            <button onclick="onUpdateUserInfo(event, '${bookId}')" type="submit" class="btn btn-primary" data-trans="submit-update-btn" onsubmit="onSubmitForm()">Submit</button> </div></div>`;
     elUpdateModal.innerHTML = strHTML;
     doTrans();
 }
@@ -87,7 +90,8 @@ function onUpdateBook(bookId) {
 //save to local storage
 //will prompt for the book new price and call the service's function
 //BONUS: Read the data from the user using an <input> instead of prompt
-function onUpdateUserInfo(id, userTitle, userPrice) {
+function onUpdateUserInfo(ev, id, userTitle, userPrice) {
+    ev.preventDefault();
     var userTitle = document.querySelector('.title-input-upd').value;
     var userPrice = document.querySelector('.price-input-upd').value;
     if (!userTitle || !userPrice) return;
@@ -101,23 +105,29 @@ function onRemoveBook(id) {
     renderBooks();
 }
 
-function onCreateBook() {
+//onAddBook
+function onCreateBook(ev) {
+    ev.preventDefault();
     var name = document.querySelector('.title-input').value;
     var price = document.querySelector('.price-input').value;
+    //start with id !price||!name
+
     if (price && name) {
         addBook(name, price);
         // doTrans();
         renderBooks();
         document.querySelector('.create').style.display = 'block';
-    } else {
-        return;
     }
+    // else {
+    //     return;
+    // }
 }
 
 //will read (prompt) the details from the user: name and price
 // then will call a function addBook(name, price)
 // renderBooks()
 //BONUS: Read the data from the user using an <input> instead of prompt
+//openAddBookModal
 function onAddBook() {
     document.querySelector('.create-book-modal').style.display = 'block';
     document.querySelector('.create').style.display = 'none';
@@ -140,5 +150,6 @@ function renderBooks() {
     });
     var elTable = document.querySelector('tbody');
     elTable.innerHTML = strHTML.join('');
+    doTrans();
     // console.log(strHTML);
 }

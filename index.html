@@ -11,7 +11,7 @@
     <title>Book Store</title>
 </head>
 
-<body class="rtl" onload="onInit()">
+<body onload="onInit()">
     <div class="book-shop">
         <header class="header">
         </header>
@@ -37,11 +37,12 @@
 
                 <!-- class="add-book-btn" onclick="onAddBook()" + -->
                 <button onclick="onAddBook()" class="btn btn-light create add-book-btn" data-trans="create-new-btn"> Create new book +  </button>
+                <!-- move x button outside the form -->
                 <form class="create-book-modal">
-                    <button onclick="onCloseCreateModal()" class="close-modal">x</button>
+                    <button onclick="onCloseCreateModal(event)" class="close-modal">x</button>
                     <input class="title-input" type="text" placeholder="Book Title" data-trans="create-title-placeholder">
                     <input class="price-input" type="number" placeholder="Price ($)" data-trans="create-price-placeholder">
-                    <button onclick="onCreateBook()" data-trans="create-btn">create</button>
+                    <button onclick="onCreateBook(event)" data-trans="create-btn">create</button>
                 </form>
             </section>
             <table border="1">

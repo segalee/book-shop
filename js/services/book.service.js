@@ -24,13 +24,15 @@ function getBooks() {
         });
     return gBooks;
 }
-
+//setSort
 function setBooksSort(sortBy) {
     gSortBy = sortBy;
 }
 
 function getBookById(bookId) {
-    const books = getBooks();
+    // const books = getBooks();
+    const books = gBooks;
+
     const book = books.find(function(book) {
         return bookId === book.id;
     });
@@ -40,12 +42,13 @@ function getBookById(bookId) {
 //replacing the new book inside the model
 // updating the local storage--> storeBooksToLocalStorage()
 // renderBooks()
-function updateBook(bookId, updName, updPrice) {
+function updateBook(bookId, newName, newPrice) {
     const bookIdx = gBooks.findIndex((book) => {
         return book.id === bookId;
     });
-    gBooks[bookIdx].name = updName;
-    gBooks[bookIdx].price = updPrice;
+    gBooks[bookIdx].name = newName;
+    gBooks[bookIdx].price = newPrice;
+    //_saveBooksToStorage();
     _saveBooksToLocalStorage();
 }
 
